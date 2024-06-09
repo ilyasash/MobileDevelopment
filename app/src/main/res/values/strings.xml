@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">StoryApp</string>
+    <string name="banner">Banner</string>
+
+    <!--Main-->
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="Register">Register</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+
+    <!--Login-->
+    <string name="message_login">Welcome to Trashify</string>
+    <string name="title_login_page">SignIn</string>
+
+    <!--Hint-->
+    <string name="Hint_name">Example : John Doe</string>
+    <string name="Hint_email">Example : johndoe@gmail.com</string>
+    <string name="Hint_password">Example : johndoe1234</string>
+
+    <!--Register-->
+    <string name="message_register">Let\'s register first</string>
+
+    <!--Button add story-->
+    <string name="addphoto">Add Photo</string>
+
+    <!--Upload-->
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="upload">Upload</string>
+    <string name="descriptions">Descriptions</string>
+
+    <string name="empty_description_warning">Description cannot be empty</string>
+    <string name="empty_image_warning">Please add image</string>
+    <string name="warn_8_char_pass">Password must be at least 8 digits</string>
+
+    <!--About-->
+    <string name="nama_about">Your Name Here</string>
+    <string name="gmail_about">Your Email Here</string>
+    <string name="AddGambarSampah">Add Trash</string>
+    <string name="Profile">Profile</string>
+</resources>
