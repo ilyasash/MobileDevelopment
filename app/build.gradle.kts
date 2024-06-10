@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.storyapp"
+    namespace = "com.example.trashify"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.storyapp"
+        applicationId = "com.example.trashify"
         minSdk = 24
         targetSdk = 33
         versionCode = 1

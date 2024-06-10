@@ -117,7 +117,7 @@
         app:layout_constraintTop_toBottomOf="@+id/passwordTextView"
         app:startIconDrawable="@drawable/baseline_lock_24">
 
-        <com.example.storyapp.custom.EditPassword
+        <com.example.trashify.custom.EditPassword
             android:id="@+id/ed_login_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

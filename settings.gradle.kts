@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Storyapp"
+rootProject.name = "Trashify"
 include(":app")
  
