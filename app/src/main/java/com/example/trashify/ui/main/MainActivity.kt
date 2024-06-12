@@ -5,7 +5,6 @@ import android.animation.ObjectAnimator
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowInsets
@@ -13,10 +12,10 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.trashify.R
 import com.example.trashify.ViewModelFactory
 import com.example.trashify.data.preference.UserModel
 import com.example.trashify.data.reponse.ListStoryItem
@@ -78,32 +77,25 @@ class MainActivity : AppCompatActivity() {
         }
         playAnimation()
     }
-
     private fun playAnimation() {
         val item_story = ObjectAnimator.ofFloat(binding.rvListStories, View.ALPHA, 1f).setDuration(100)
         item_story.start()
     }
 
     private fun setupAction(user: UserModel) {
-        binding.topAppBar.setOnMenuItemClickListener {
-            when (it.itemId) {
-                R.id.About -> {
-                    val intent = Intent(this@MainActivity, AboutActivity::class.java)
-                    intent.putExtra("name", user.name)
-                    intent.putExtra("email", user.email)
-                    startActivity(intent)
-                    true
-                }
-                R.id.AddGambarSampah -> {
-                    startActivity(Intent(this@MainActivity, AddStoryActivity::class.java))
-                    true
-                }
-                R.id.logout -> {
-                    viewModel.logout()
-                    true
-                }
-                else -> false
-            }
+        binding.About.setOnClickListener {
+            val intent = Intent(this@MainActivity, AboutActivity::class.java)
+            intent.putExtra("name", user.name)
+            intent.putExtra("email", user.email)
+            startActivity(intent)
+        }
+
+        binding.Main.setOnClickListener {
+            // This button will have no effects
+        }
+
+        binding.fab.setOnClickListener {
+            startActivity(Intent(this@MainActivity, AddStoryActivity::class.java))
         }
 
         lifecycleScope.launch {
@@ -133,7 +125,6 @@ class MainActivity : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
             )
         }
-        supportActionBar?.hide()
 
         viewModel.isLoading.observe(this@MainActivity) {
             showLoading(it)

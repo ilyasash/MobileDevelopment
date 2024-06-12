@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/About"
-        android:title="@string/logout"
-        android:icon="@drawable/baseline_person_24"
-        app:showAsAction="ifRoom"/>
 
-    <item
-        android:id="@+id/AddGambarSampah"
-        android:title="@string/AddGambarSampah"
-        android:icon="@drawable/baseline_add_a_photo_24"
-        app:showAsAction="ifRoom"/>
+<!--    <item-->
+<!--        android:id="@+id/logout"-->
+<!--        android:title="@string/logout"-->
+<!--        android:icon="@drawable/baseline_logout_24"-->
+<!--        app:showAsAction="ifRoom"-->
+<!--        android:orderInCategory="1"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <item
-        android:id="@+id/logout"
-        android:title="@string/Profile"
-        android:icon="@drawable/baseline_logout_24"
-        app:showAsAction="ifRoom"/>
+<!--    <item-->
+<!--        android:id="@+id/About"-->
+<!--        android:title="@string/Profile"-->
+<!--        android:icon="@drawable/baseline_person_24"-->
+<!--        app:showAsAction="ifRoom"-->
+<!--        android:orderInCategory="2"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 </menu>

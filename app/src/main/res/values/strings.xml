@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">StoryApp</string>
+    <string name="app_name">Trashify</string>
     <string name="banner">Banner</string>
 
-    <!--Main-->
+    <!--Auth-->
     <string name="name">Name</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
@@ -25,6 +25,9 @@
     <!--Button add story-->
     <string name="addphoto">Add Photo</string>
 
+    <!--History-->
+    <string name="history">History</string>
+
     <!--Upload-->
     <string name="camera">Camera</string>
     <string name="gallery">Gallery</string>
@@ -40,4 +43,5 @@
     <string name="gmail_about">Your Email Here</string>
     <string name="AddGambarSampah">Add Trash</string>
     <string name="Profile">Profile</string>
+    <string name="AddProfilePicture">Add PP</string>
 </resources>

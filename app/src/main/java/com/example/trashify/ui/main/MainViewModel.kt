@@ -50,12 +50,6 @@ class MainViewModel(private val repository: UserRepo) : ViewModel() {
         return repository.getSession().asLiveData()
     }
 
-    fun logout() {
-        viewModelScope.launch {
-            repository.logout()
-        }
-    }
-
     companion object{
         private const val TAG = "MainViewModel"
     }
