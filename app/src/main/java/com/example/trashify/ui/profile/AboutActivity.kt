@@ -1,6 +1,7 @@
 package com.example.trashify.ui.profile
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -11,6 +12,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.example.trashify.R
 import com.example.trashify.ViewModelFactory
 import com.example.trashify.data.database.ProfilePicture
 import com.example.trashify.databinding.ActivityAboutBinding
@@ -51,6 +53,16 @@ class AboutActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupBinding()
+
+        // removing the shadow effect on the BottomNavigationView
+        binding.bottomNavigationView.background = null
+
+        // making the placeholder menu item unclickable
+        binding.bottomNavigationView.menu.getItem(1).isEnabled = false
+
+        // Set the About item as selected
+        binding.bottomNavigationView.selectedItemId = R.id.About
+
         setupActionBar()
         setupIntentData()
         setupClickListeners()
@@ -81,15 +93,33 @@ class AboutActivity : AppCompatActivity() {
 
     private fun setupClickListeners() {
         binding.logout.setOnClickListener {
-            viewModel.logout()
+            AlertDialog.Builder(this)
+                .setTitle("Log Out?")
+                .setMessage("Are you sure you want to log out?")
+                .setPositiveButton("Log Out") { _, _ ->
+                    viewModel.logout()
+                }
+                .setNegativeButton("Cancel", null)
+                .show()
         }
 
         binding.fab.setOnClickListener {
             startActivity(Intent(this, AddStoryActivity::class.java))
         }
 
-        binding.Main.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+        binding.bottomNavigationView.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.Main -> {
+                    val intent = Intent(this@AboutActivity, MainActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.About -> {
+                    // this button will have no effect
+                    true
+                }
+                else -> false
+            }
         }
 
         binding.addProfilePicture.setOnClickListener {

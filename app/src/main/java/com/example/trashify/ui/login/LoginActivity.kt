@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun setupAction() {
-        binding.RegisterButton.setOnClickListener {
+        binding.RegisterTextView.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
@@ -107,7 +107,7 @@ class LoginActivity : AppCompatActivity() {
         val passwordEditText = ObjectAnimator.ofFloat(binding.passwordEditTextLayout, View.ALPHA, 1f).setDuration(100)
 
         val login = ObjectAnimator.ofFloat(binding.loginButton, View.ALPHA, 1f).setDuration(100)
-        val signUp = ObjectAnimator.ofFloat(binding.RegisterButton, View.ALPHA, 1f).setDuration(100)
+        val signUp = ObjectAnimator.ofFloat(binding.RegisterTextView, View.ALPHA, 1f).setDuration(100)
 
         val together = AnimatorSet().apply {
             playTogether(signUp, login)
@@ -121,7 +121,8 @@ class LoginActivity : AppCompatActivity() {
                 emailEditText,
                 passwordText,
                 passwordEditText,
-                together)
+                together
+            )
             start()
         }
     }

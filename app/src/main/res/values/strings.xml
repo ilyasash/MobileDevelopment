@@ -7,20 +7,22 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="Register">Register</string>
-    <string name="login">Login</string>
-    <string name="logout">Logout</string>
+    <string name="login">LogIn</string>
+    <string name="logout">Log Out</string>
 
     <!--Login-->
     <string name="message_login">Welcome to Trashify</string>
-    <string name="title_login_page">SignIn</string>
+    <string name="title_login_page">Have an account already? Let\'s Login</string>
 
     <!--Hint-->
-    <string name="Hint_name">Example : John Doe</string>
-    <string name="Hint_email">Example : johndoe@gmail.com</string>
-    <string name="Hint_password">Example : johndoe1234</string>
+    <string name="Hint_name">John Doe</string>
+    <string name="Hint_email">johndoe@gmail.com</string>
+    <string name="Hint_password">johndoe1234</string>
 
     <!--Register-->
     <string name="message_register">Let\'s register first</string>
+    <string name="register_text_button">Register here</string>
+    <string name="login_text_button">LogIn here</string>
 
     <!--Button add story-->
     <string name="addphoto">Add Photo</string>
@@ -44,4 +46,7 @@
     <string name="AddGambarSampah">Add Trash</string>
     <string name="Profile">Profile</string>
     <string name="AddProfilePicture">Add PP</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="Hint_confirm_password">johndoe1234</string>
+
 </resources>

@@ -3,26 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="250dp"
+    android:layout_height="350dp"
     android:orientation="vertical"
-    app:cardCornerRadius="5dp"
+    app:cardCornerRadius="15dp"
     android:id="@+id/cardView"
     app:cardUseCompatPadding="true">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:padding="5dp"
         android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/photoUrl"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="250dp"
             android:transitionName="photo"
             android:contentDescription="@string/banner"
-            tools:src="@drawable/photo"
-            android:scaleType="centerInside"
+            tools:src="@drawable/baseline_image_24"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -32,7 +30,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:transitionName="name"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="5dp"
             android:maxLines="1"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -48,6 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
             android:transitionName="description"
             android:maxLines="1"
             app:layout_constraintEnd_toEndOf="@id/textName"
@@ -56,8 +56,6 @@
             app:layout_constraintTop_toBottomOf="@id/textName"
             tools:text="@string/descriptions" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </androidx.cardview.widget.CardView>

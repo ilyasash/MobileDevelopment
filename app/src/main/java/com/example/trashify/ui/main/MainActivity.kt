@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.trashify.R
 import com.example.trashify.ViewModelFactory
 import com.example.trashify.data.preference.UserModel
 import com.example.trashify.data.reponse.ListStoryItem
@@ -35,6 +36,7 @@ class MainActivity : AppCompatActivity() {
     private val viewModel by viewModels<MainViewModel> {
         ViewModelFactory.getInstance(this)
     }
+
 
     private val requestPermissionLauncher =
         registerForActivityResult(
@@ -64,6 +66,15 @@ class MainActivity : AppCompatActivity() {
             requestPermissionLauncher.launch(REQUIRED_PERMISSION)
         }
 
+        //removing the shadow effect on the BottomNavigationView
+        binding.bottomNavigationView.background = null
+
+        //making the placeholder menu item unclickable
+        binding.bottomNavigationView.menu.getItem(1).isEnabled = false
+
+        // Set the Main item as selected
+        binding.bottomNavigationView.selectedItemId = R.id.Main
+
         viewModel.getSession().observe(this) { user ->
             runBlocking { delay(1500) }
             if (user.token.isNotEmpty() && user.token != "") {
@@ -83,15 +94,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupAction(user: UserModel) {
-        binding.About.setOnClickListener {
-            val intent = Intent(this@MainActivity, AboutActivity::class.java)
-            intent.putExtra("name", user.name)
-            intent.putExtra("email", user.email)
-            startActivity(intent)
-        }
-
-        binding.Main.setOnClickListener {
-            // This button will have no effects
+        binding.bottomNavigationView.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.Main -> {
+                    // this button will have no effect
+                    true
+                }
+                R.id.About -> {
+                    val intent = Intent(this@MainActivity, AboutActivity::class.java)
+                    intent.putExtra("name", user.name)
+                    intent.putExtra("email", user.email)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
         }
 
         binding.fab.setOnClickListener {
@@ -105,7 +122,6 @@ class MainActivity : AppCompatActivity() {
         }
         viewModel.getAllStories(token)
     }
-
     private fun setAllStoriesList(items: List<ListStoryItem>) {
         binding.rvListStories.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)

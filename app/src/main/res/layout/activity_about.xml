@@ -6,13 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".ui.profile.AboutActivity">
 
+    <TextView
+        android:id="@+id/profile_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Profile"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profileImageView"
         android:layout_width="170dp"
         android:layout_height="170dp"
         app:civ_border_width="2dp"
         android:src="@drawable/baseline_person_24"
-        app:civ_border_color="#4CAF50"
+        app:civ_border_color="@color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,6 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:textStyle="bold"
         android:text="@string/nama_about"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,71 +86,52 @@
         android:id="@+id/logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:backgroundTint="@android:color/white"
         android:text="@string/logout"
+        android:textColor="@color/Text_1"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="100dp"
+        app:icon="@drawable/baseline_logout_24"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/about_gmail"
-        app:drawableRightCompat="@drawable/baseline_logout_24"/>
+        app:cornerRadius="20dp" />
 
     <!-- BOTTOM NAVBAR START -->
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:id="@+id/RelativeLayout"
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_gravity="bottom"
-            android:background="#FFFFFF">
+            android:layout_height="wrap_content"
+            app:fabCradleMargin="20dp"
+            app:fabCradleVerticalOffset="10dp"
+            app:fabCradleRoundedCornerRadius="20dp"
+            android:layout_gravity="bottom">
 
-            <Button
-                android:id="@+id/Main"
-                android:layout_width="205dp"
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigationView"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="0dp"
+                android:layout_marginEnd="16dp"
                 android:background="@android:color/transparent"
-                android:gravity="center"
-                android:contentDescription="@string/history"
-                android:paddingTop="15dp"
-                app:drawableTopCompat="@drawable/baseline_view_list_24" />
+                app:menu="@menu/bottom_navigation_menu" />
 
-            <Button
-                android:id="@+id/About"
-                android:layout_width="205dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="0dp"
-                android:background="@android:color/transparent"
-                android:gravity="center"
-                android:contentDescription="@string/Profile"
-                android:paddingTop="15dp"
-                app:drawableTopCompat="@drawable/baseline_person_24_clicked" />
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:background="@drawable/border_shadow"
-            app:layout_anchor="@+id/RelativeLayout"
-            app:layout_anchorGravity="top"/>
+        </com.google.android.material.bottomappbar.BottomAppBar>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
+            app:backgroundTint="@color/green"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
             android:contentDescription="@string/AddGambarSampah"
             android:src="@drawable/baseline_add_a_photo_24"
-            app:layout_anchor="@id/RelativeLayout"
-            app:layout_anchorGravity="top|center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:backgroundTint="#4CAF50"
-            style="@style/FloatingActionButtonStyle2" />
-
+            app:layout_anchor="@id/bottomAppBar" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-    <!-- BOTTOM NAVBAR END-->
+    <!-- BOTTOM NAVBAR END -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
