@@ -2,9 +2,11 @@ package com.example.trashify.ui.login
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
@@ -18,7 +20,6 @@ import com.example.trashify.ViewModelFactory
 import com.example.trashify.databinding.ActivityLoginBinding
 import com.example.trashify.ui.main.MainActivity
 import com.example.trashify.ui.register.RegisterActivity
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
@@ -54,11 +55,12 @@ class LoginActivity : AppCompatActivity() {
             lifecycleScope.launch {
                 viewModel.login(emailText, passwordText)
                 viewModel.getToken.collect { token ->
-                    if (token != null) {
+                    if (!token.isNullOrEmpty()) {
                         startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                         finish()
                     } else {
-                        showToast("Failed to get token")
+                        Log.e(TAG, "Failed to get token")
+                        showToast("Login Failed")
                     }
                 }
             }
@@ -66,7 +68,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun showToast(message: String) {
-        Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 

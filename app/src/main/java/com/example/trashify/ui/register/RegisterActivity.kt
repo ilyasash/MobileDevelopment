@@ -18,7 +18,6 @@ import com.example.trashify.ViewModelFactory
 import com.example.trashify.custom.EditPassword
 import com.example.trashify.databinding.ActivityRegisterBinding
 import com.example.trashify.ui.login.LoginActivity
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -113,7 +112,6 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun showToast(message: String) {
-        Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 

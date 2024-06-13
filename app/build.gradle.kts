@@ -93,7 +93,8 @@ implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 implementation("androidx.room:room-common:2.6.1")
 implementation("androidx.room:room-ktx:2.6.1")
 implementation("androidx.room:room-runtime:2.6.1")
-ksp("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.media3:media3-common:1.3.1")
+    ksp("androidx.room:room-compiler:2.6.1")
 
 /* JUnit for Unit Testing */
 testImplementation("junit:junit:4.13.2")
